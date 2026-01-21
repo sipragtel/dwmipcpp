@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.5.0 FATAL_ERROR)
 project(dwmipcpp CXX)
 
 option(BUILD_EXAMPLES "Build examples" OFF)
@@ -18,7 +18,7 @@ add_library(${PROJECT_NAME} STATIC
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
-target_compile_options(${PROJECT_NAME} PRIVATE -std=c++11 -Wall -Wextra)
+target_compile_options(${PROJECT_NAME} PRIVATE -std=c++11 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-declarations)
 target_compile_options(${PROJECT_NAME} PRIVATE $<$<CONFIG:Debug>: -g3 -DDEBUG>)
 target_compile_options(${PROJECT_NAME} PRIVATE $<$<CONFIG:Release>: -O2>)
 
